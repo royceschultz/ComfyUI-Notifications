@@ -1,21 +1,8 @@
 import { app } from "../../../scripts/app.js";
-
-const notificationSetup = () => {
-    if (!("Notification" in window)) {
-        console.log("This browser does not support notifications.");
-        alert("This browser does not support notifications.");
-        return;
-    }
-    if (Notification.permission === "denied") {
-        console.log("Notifications are blocked. Please enable them in your browser settings.");
-        alert("Notifications are blocked. Please enable them in your browser settings.");
-        return;
-    }
-    if (Notification.permission !== "granted") {
-        Notification.requestPermission()
-    }
-    return true;
-}
+import {
+    notificationSetup, sendNotification, getNotificationTextFromArguments,
+    appQueueIsEmpty,
+} from "./util.js";
 
 app.registerExtension({
     name: "Notifications.SystemNotification",
@@ -25,16 +12,11 @@ app.registerExtension({
             nodeType.prototype.onExecuted = async function () {
                 onExecuted?.apply(this, arguments);
                 if (this.widgets[0].value === "on empty queue") {
-                    if (app.ui.lastQueueSize !== 0) {
-                        await new Promise((r) => setTimeout(r, 500));
-                    }
-                    if (app.ui.lastQueueSize !== 0) {
-                        return;
-                    }
+                    if (!await appQueueIsEmpty(app)) return;
                 }
                 if (!notificationSetup()) return;
-                const notification_text = arguments[0]?.notification_text[0] ?? "Your notification has triggered."
-                const notification = new Notification("ComfyUI", { body: notification_text })
+                const notification_text = getNotificationTextFromArguments(arguments)
+                sendNotification("ComfyUI", notification_text)
             };
 
             const onNodeCreated = nodeType.prototype.onNodeCreated;
