@@ -18,3 +18,9 @@ Sends a system notification via the browser.
 Plays a chime sound to notify the user.
 
 <img src="assets/play_sound_node.jpg" width="400"/>
+
+## Unified Notification
+
+Supports multiple notification types in one node for convenience.
+
+<img src="assets/unified_notif_node.jpg" width="400"/>
