@@ -7,6 +7,7 @@ class SystemNotification:
             "required": {
                 "any": (ComfyAnyType("*"), {}),
                 "mode": (["always", "on empty queue"], {}),
+                "notification_text": ('STRING', {'default': 'Your notification has triggered.'}),
             },
         }
 
@@ -15,5 +16,5 @@ class SystemNotification:
     RETURN_TYPES = tuple()
     CATEGORY = "notifications"
 
-    def nop(self, any, mode):
-        return {"ui": {"a": []}, "result": (0, )}
+    def nop(self, any, mode, notification_text):
+        return {"ui": {"notification_text": [notification_text]}, "result": (0, )}

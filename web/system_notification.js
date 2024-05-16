@@ -33,7 +33,8 @@ app.registerExtension({
                     }
                 }
                 if (!notificationSetup()) return;
-                const notification = new Notification("ComfyUI", { body: "Your notification has triggered." })
+                const notification_text = arguments[0]?.notification_text[0] ?? "Your notification has triggered."
+                const notification = new Notification("ComfyUI", { body: notification_text })
             };
 
             const onNodeCreated = nodeType.prototype.onNodeCreated;
