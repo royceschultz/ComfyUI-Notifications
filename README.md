@@ -2,7 +2,7 @@
 
 This package provides custom nodes to ComfyUI to notify users when workflows have completed.
 
-These tools are also available via [ComfyUI-Custom-Scripts](https://github.com/royceschultz/ComfyUI-Custom-Scripts), but this package comes without the bloat of other tools.
+These tools are also available via [ComfyUI-Custom-Scripts](https://github.com/pythongosssss/ComfyUI-Custom-Scripts), but this package comes without the bloat of other tools.
 
 ## Send Notification
 
