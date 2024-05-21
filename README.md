@@ -19,6 +19,13 @@ Plays a chime sound to notify the user.
 
 <img src="assets/play_sound_node.jpg" width="400"/>
 
+
+## Webhook
+
+Send a webhook to the specified URL. Supports customizing JSON body with the `json_format` template.
+
+<img src="assets/webhook_node.jpg" width="400"/>
+
 ## Unified Notification
 
 Supports multiple notification types in one node for convenience.
