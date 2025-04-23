@@ -2,13 +2,13 @@
 name = "comfyui-notifications"
 description = "Send notifications when a workflow completes."
 version = "1.0.0"
-license = "LICENSE"
+license = "MIT License"
 
 [project.urls]
 Repository = "https://github.com/royceschultz/ComfyUI-Notifications"
 #  Used by Comfy Registry https://comfyregistry.org
 
 [tool.comfy]
-PublisherId = ""
+PublisherId = "royceschultz"
 DisplayName = "ComfyUI-Notifications"
 Icon = ""
