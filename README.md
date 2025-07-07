@@ -17,6 +17,10 @@ Sends a system notification via the browser.
 
 Plays a chime sound to notify the user.
 
+By default, the selected sound file is at [`custom_nodes/ComfyUI-Notifications/web/assets/notify.mp3`](web/assets/). You can add custom sounds to this directory and change the file name in the node settings to play a different sound.
+
+Alternatively, you can use a URL to an audio file. Simply enter the URL in the `file` field.
+
 <img src="assets/play_sound_node.jpg" width="400"/>
 
 

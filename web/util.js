@@ -29,7 +29,7 @@ export const playSound = (file, volume) => {
     if (!file) {
         file = 'notify.mp3'
     }
-    if (!file.startsWith('http')) {
+    if (!(file.startsWith('http') || file.startsWith('https'))) {
         if (!file.includes('/')) {
             file = 'assets/' + file
         }
